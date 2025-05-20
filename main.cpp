@@ -10,14 +10,18 @@ int main(){
 	// ** traditional factory model **
 	//
 	//AnimalFactory animalFactory;
-	//Animal* ani = animalFactory.getAnimal("dog");
+	//Animal* ani = animalFactory.getAnimal("dog");  /* from : ... if (type == "dog") { return new Dog(); } else if ... */
 	//ani->run();
+	//delete ani;
+	//ani = nullptr;
 	//
 	//ani = animalFactory.getAnimal("duck");
 	//ani->run();
+	////delete ...
 	//
 	//ani = animalFactory.getAnimal("mouse");
 	//ani->run();
+	////delete ...
 
 	// init
 	auto ani_pool = AnimalRegister::AnimalPool();
