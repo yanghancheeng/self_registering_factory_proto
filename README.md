@@ -19,20 +19,20 @@ struct Animal {
 //Self-registration factory
 class AnimalFactoryRegistry {
 private:
-	AnimalFactoryRegistry() = default;
+    AnimalFactoryRegistry() = default;
     ~AnimalFactoryRegistry() = default;
 public:
-	using CreatorFunction = std::function<std::shared_ptr<Animal>()>;
+    using CreatorFunction = std::function<std::shared_ptr<Animal>()>;
 	
-	AnimalFactoryRegistry(const AnimalFactoryRegistry&) = delete;
+    AnimalFactoryRegistry(const AnimalFactoryRegistry&) = delete;
     AnimalFactoryRegistry& operator=(const AnimalFactoryRegistry&) = delete;
     static AnimalFactoryRegistry& getInstance();
 	
-	void registerCreator(const std::string& name, CreatorFunction factory);
-	std::shared_ptr<Animal> createAnimal(const std::string& name) const;
+    void registerCreator(const std::string& name, CreatorFunction factory);
+    std::shared_ptr<Animal> createAnimal(const std::string& name) const;
 
 private:
-	std::map<std::string, CreatorFunction> creators_;
+    std::map<std::string, CreatorFunction> creators_;
 };
 
 template <typename T>
