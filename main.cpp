@@ -6,21 +6,24 @@
 using namespace std;
 
 
-
 int main(){
-	AnimalFactory animalFactory;
-	Animal* ani = animalFactory.getAnimal("dog");
-	ani->run();
+	// ** traditional factory model **
+	//
+	//AnimalFactory animalFactory;
+	//Animal* ani = animalFactory.getAnimal("dog");
+	//ani->run();
+	//
+	//ani = animalFactory.getAnimal("duck");
+	//ani->run();
+	//
+	//ani = animalFactory.getAnimal("mouse");
+	//ani->run();
 
-	ani = animalFactory.getAnimal("duck");
-	ani->run();
-
-	ani = animalFactory.getAnimal("mouse");
-	ani->run();
-
+	// init
 	auto ani_pool = AnimalRegister::AnimalPool();
 	auto& registry = AnimalFactoryRegistry::getInstance();
 
+	
 	// Self-registration pattern
 	std::shared_ptr<Animal> ani;
 	ani = ani_pool.at("dog");
@@ -53,7 +56,6 @@ int main(){
 	animal_ptr->run();
 	animal_ptr = registry.createAnimal("dog");
 	animal_ptr->run();
-
 
 	return 0;
 }
