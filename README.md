@@ -1,0 +1,1 @@
+# self_registering_factory_proto
