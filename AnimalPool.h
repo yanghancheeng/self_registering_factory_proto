@@ -29,8 +29,11 @@ public:
 class AnimalFactoryRegistry {
 public:
 	using CreatorFunction = std::function<std::shared_ptr<Animal>()>;
-
-	static AnimalFactoryRegistry& getInstance();
+	
+	AnimalFactoryRegistry(const AnimalFactoryRegistry&) = delete;
+    AnimalFactoryRegistry& operator=(const AnimalFactoryRegistry&) = delete;
+    static AnimalFactoryRegistry& getInstance();
+	
 	void registerCreator(const std::string& name, CreatorFunction factory);
 	std::shared_ptr<Animal> createAnimal(const std::string& name) const;
 
