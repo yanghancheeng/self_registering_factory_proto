@@ -27,6 +27,9 @@ public:
 //===========================================================================
 //Self-registration factory
 class AnimalFactoryRegistry {
+private:
+	AnimalFactoryRegistry() = default;
+    ~AnimalFactoryRegistry() = default;
 public:
 	using CreatorFunction = std::function<std::shared_ptr<Animal>()>;
 	
